@@ -304,10 +304,11 @@ create 'events',{NAME =>'info', COMPRESSION => 'LZ4'},SPLITS => ['0','1', '2', '
 |列簇|字段|数据类型|说明|
 |:---:|:---------------------|:-------|:---------------|
 |info | vin                 | String | 车架号           |
-|info | event_type          | String | 事件类型           |
-|info | event_name          | String | 事件名称 |
-|info | event_time          | Long   |事件发生时间 |
+|info | event_type          | String | 事件类型          | 
+|info | event_name          | String | 事件名称      |
+|info | event_time          | Long   | 事件发生时间   |
 |info | event_level         | Int    | 事件等级 |
 |info | event_reason        | String | 事件原因 |
-|info | latitude            | Double | 纬度 |
-|info | longitude           | Double | 经度 |
+|info | latitude            | Double | 纬度     |
+|info | longitude           | Double | 经度     |
+
