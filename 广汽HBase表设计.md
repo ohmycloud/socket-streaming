@@ -207,8 +207,10 @@ create 'trip_signal',{NAME =>'info', COMPRESSION => 'LZ4'},SPLITS => ['0','1', '
 |info|samping_speed         | Double    |取样速度    |
 |info|samping_acc           | Double    |取样加速度  |
 |info|samping_temp          | Double    |取样温度   |  
-|info|start_first_frame_temp            | Int       |**车辆启动时的电池第一帧温度**|   
-+三急
+|info|start_first_frame_temp| Int       |**车辆启动时的电池第一帧温度**|   
+|info|harsh_acc             | Int       |急加速次数 |
+|info|harsh_slowdown        | Int       |急减速次数 |
+|info|harsh_stop            | Int       |急停次数   |
 
 #### 2.2）充电行程表
 
@@ -316,7 +318,6 @@ create 'events',{NAME =>'info', COMPRESSION => 'LZ4'},SPLITS => ['0','1', '2', '
 |info | event_reason        | String | 事件原因 |
 |info | latitude            | Double | 纬度 |
 |info | longitude           | Double | 经度 |
-
 
 
 row key: reverse(vin + event_tpye) + yyyymmdd 日期。
