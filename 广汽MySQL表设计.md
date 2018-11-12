@@ -1362,3 +1362,13 @@ create table if not exists avg_noalm_inter (
    ) engine=InnoDB default charset=utf8 comment='平均无故障间隔里程单车'
 ```
 
+- 全国每日所有车辆所有故障统计
+
+
+```sql
+create table real_time_summary (
+  attribute tinyint(1) NOT NULL COMMENT '0-events, 1-其它',
+  attribute_num bigint(20) default 0 COMMENT '数量',
+  UNIQUE KEY `unique_real_time_summary` (`attribute`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='每日所有车辆所有故障（或其它指标）汇总表';
+```
