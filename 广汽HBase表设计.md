@@ -201,16 +201,18 @@ create 'trip_signal',{NAME =>'info', COMPRESSION => 'LZ4'},SPLITS => ['0','1', '
 |info|vcu_water_temp2       | Int       |**驱动电机冷却水温度**|
 |info|trip_status           | Int       | 行程状态   |
 |info|trip_max_temp         | Int       | 行程最高温度|
-|info|min_moltage           | Int       |最低电压    |
-|info|max_voltage           | Int       |最高电压    |
-|info|samping_gps           | Int       |取样GPS    |
-|info|samping_speed         | Double    |取样速度    |
-|info|samping_acc           | Double    |取样加速度  |
-|info|samping_temp          | Double    |取样温度   |  
-|info|start_first_frame_temp| Int       |**车辆启动时的电池第一帧温度**|   
-|info|harsh_acc             | Int       |急加速次数 |
-|info|harsh_slowdown        | Int       |急减速次数 |
-|info|harsh_stop            | Int       |急停次数   |
+|info|min_moltage           | Int       | 最低电压    |
+|info|max_voltage           | Int       | 最高电压    |
+|info|samping_gps           | Int       | 取样GPS    |
+|info|samping_speed         | Double    | 取样速度    |
+|info|samping_acc           | Double    | 取样加速度  |
+|info|samping_temp          | Double    | 取样温度   |  
+|info|start_first_frame_temp| Int       | **车辆启动时的电池第一帧温度**|   
+|info|harsh_acc             | Int       | 急加速次数 |
+|info|harsh_slowdown        | Int       | 急减速次数 |
+|info|harsh_stop            | Int       | 急停次数   |
+|info|acc_num               | Int       | 加速次数   |
+|info|brake_num             | Int       | 制动次数   |
 
 #### 2.2）充电行程表
 
