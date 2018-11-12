@@ -207,8 +207,8 @@ create 'trip_signal',{NAME =>'info', COMPRESSION => 'LZ4'},SPLITS => ['0','1', '
 |info|samping_speed         | Double    | 取样速度    |
 |info|samping_acc           | Double    | 取样加速度  |
 |info|samping_temp          | Double    | 取样温度   |  
-|info|start_first_frame_temp| Int       | **车辆启动时的电池第一帧温度**|   
-|info|harsh_acc             | Int       | 急加速次数 |
+|info|start_first_frame_temp| Int       | **车辆启动时的电池第一帧温度**|
+|info|harsh_acc             | Int       | 急加速次数 |
 |info|harsh_slowdown        | Int       | 急减速次数 |
 |info|harsh_stop            | Int       | 急停次数   |
 |info|acc_num               | Int       | 加速次数   |
