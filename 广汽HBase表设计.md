@@ -185,14 +185,6 @@ create 'trip_signal',{NAME =>'info', COMPRESSION => 'LZ4'},SPLITS => ['0','1', '
 |info|start_latitude        | Double    | 开始纬度   |
 |info|end_latitude          | Double    | 结束纬度   |  
 |info|low_speed_num         | Long      | 低速次数   |
-|info|medium_speed_num      | Long      | 中速次数  |
-|info|high_speed_num        | Long      | 高速次数  |
-|info|low_speed_soc         | Double    | 低速SOC  |
-|info|medium_speed_soc      | Double    | 中速SOC  |
-|info|high_speed_soc        | Double    | 高速SOC  |
-|info|low_speed_mileage     | Double    | 低速里程  | 
-|info|medium_speed_mileage  | Double    | 中速里程  |
-|info|high_speed_mileage    | Double    | 高速里程  |
 |info|average_speed         | Double    | 平均速度  |
 |info|max_temp              | Double    | 最高温度  |
 |info|min_temp              | Double    | 最低温度  |
