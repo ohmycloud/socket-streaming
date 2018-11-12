@@ -190,8 +190,8 @@ create 'trip_signal',{NAME =>'info', COMPRESSION => 'LZ4'},SPLITS => ['0','1', '
 |info|min_temp              | Double    | 最低温度  |
 |info|start_temp            | Int       |**车辆启动时的起始温度**|
 |info|vcu_water_temp2       | Int       |**驱动电机冷却水温度**|
-|info|trip_status           | Int       | 行程状态   |
-|info|trip_max_temp         | Int       | 行程最高温度|
+|info|trip_status           | Int       | 行程状态    |
+|info|trip_max_temp         | Int       | 行程最高温度 |
 |info|min_moltage           | Int       | 最低电压    |
 |info|max_voltage           | Int       | 最高电压    |
 |info|samping_gps           | Int       | 取样GPS    |
