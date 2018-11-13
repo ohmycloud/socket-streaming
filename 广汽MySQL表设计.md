@@ -1236,13 +1236,14 @@ create table if not exists alm_ana_statis_summary(
 ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='故障分析统计表整体区域';
 ```
 + 平均无故障间隔里程
+
 ```sql
 create table if not exists avg_noalm_inter_summary(
     region_name varchar(20) NOT NULL COMMENT   '区域名称',
     car_type varchar(10) NOT NULL COMMENT      '车型',
     car_usage varchar(10) NOT NULL COMMENT     '用途',
     ave_mile double(16,2) default 0.00 COMMENT '平均里程',
-   ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='平均无故障间隔里程整体区域';
+) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='平均无故障间隔里程整体区域';
 ```
 
 ## 故障统计-单车
@@ -1252,6 +1253,7 @@ create table if not exists avg_noalm_inter_summary(
 + 故障top15
 + 故障等级时序图
 + 故障类型时序图
+
 ```sql
 create table if not exists alm_ana_statis(
     year varchar(2) NOT NULL COMMENT      '年份',
@@ -1266,7 +1268,9 @@ create table if not exists alm_ana_statis(
     key idx_alm_type (alm_type)
    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='故障分析统计表单车'
 ```
+
 + 平均无故障间隔里程
+
 ```sql
 create table if not exists avg_noalm_inter (
     day datetime NOT NULL COMMENT              '出行日期,yyyy-MM-dd 格式',
