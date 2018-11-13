@@ -973,9 +973,9 @@ create table charge_interval (
 + 行程电池起始/最高/低温度分布
     ```sql
     create table if not exists bat_temp_dis(
-      vin varchar(17) comment '车架号',
       year varchar(2) NOT NULL COMMENT '年份',
       month varchar(2) NOT NULL COMMENT '月份：1-1月，1-2月，... 12-12月',
+      vin varchar(17) comment '车架号',
       trip_status char(1) not null comment '行程类型：0-驾驶,1-充电,2-休眠6小时',
       trip_st_all_flag tinyint(1) default 0 comment '0-起始,1-所有',
       temp_hl_flag tinyint(1) default 0 comment '0-最高温度,1-最低温度',
@@ -1006,9 +1006,9 @@ create table charge_interval (
 + 行程电池温差/压差数值分布
     ```sql
     create table if not exists temp_vol_dis_dis(
-      vin varchar(17) comment '车架号',
       year varchar(2) NOT NULL COMMENT '年份',
-      month varchar(2) NOT NULL COMMENT '月份：1-1月，1-2月... 12-12月',
+      month varchar(2) NOT NULL COMMENT '月份：1-1月，1-2月... 12-12月',  
+      vin varchar(17) comment '车架号',
       trip_type char(1) not null comment '行程类型：0-驾驶 1-快充 2-慢充',
       bat_temp_vol_dif tinyint(1) default 0 comment '0-温差 1-压差',
       bl_max int(3) comment '箱线最大值',
@@ -1022,9 +1022,9 @@ create table charge_interval (
 + 行程各温度/电压区间时长分布
     ```sql
     create table if not exists temp_vol_perd(
-      vin varchar(17) comment '车架号',
       year varchar(2) NOT NULL COMMENT '年份',
       month varchar(2) NOT NULL COMMENT '月份：1-1月，1-2月，... 12-12月',
+      vin varchar(17) comment '车架号',
       trip_type char(1) not null comment '行程类型：0-驾驶 1-快充 2-慢充',
       temp_vol_flag tinyint(1) default 0 comment '0-温度  1-电压',
       temp_range tinyint(1) default 0 comment '温度区间范围：0-[-40~-20] 1-[-20~0] 2-[0~20] 3-[20~40] 4-[40~60];电压区间范围：0-[0~20] 1-[20~40] 2-[4~60] 3-[60~80] 4-[80~100]',
@@ -1039,9 +1039,9 @@ create table charge_interval (
 + 行程电池冷却水入口和出口温差数值分布
     ```sql
     create table if not exists bat_watrio_temp_dif(
-      vin varchar(17) comment '车架号',
       year varchar(2) NOT NULL COMMENT '年份',
-      month varchar(2) NOT NULL COMMENT '月份：1-1月，1-2月... 12-12月',
+      month varchar(2) NOT NULL COMMENT '月份：1-1月，1-2月... 12-12月',  
+      vin varchar(17) comment '车架号',
       trip_type char(1) not null comment '行程类型：0-快冷 1-慢冷 2-电池加热',
       bl_max int(4) comment '箱线最大值',
       bl_min int(4) comment '箱线最小值',
@@ -1054,9 +1054,9 @@ create table charge_interval (
 + 电池冷却水入口温度区间时长分布
     ```sql
     create table if not exists bat_watri_temp_range(
-      vin varchar(17) comment '车架号',
       year varchar(2) NOT NULL COMMENT '年份',
-      month varchar(2) NOT NULL COMMENT '月份：1-1月，1-2月... 12-12月',
+      month varchar(2) NOT NULL COMMENT '月份：1-1月，1-2月... 12-12月',  
+      vin varchar(17) comment '车架号',
       trip_type char(1) not null comment '行程类型：0-快冷 1-慢冷 2-电池加热',
       temp_range tinyint(1) default 0 comment '温度区间:温度区间:0-[-40~-20],1-[-20~0],2-[0~20],3-[20~40]',
       bl_max int(4) comment '箱线最大值',
@@ -1070,9 +1070,9 @@ create table charge_interval (
 + 车辆充电起始SOC区间分布
     ```sql
     create table if not exists charge_ssocr_dis(
-      vin varchar(17) comment '车架号',
       year varchar(2) NOT NULL COMMENT '年份',
-      month varchar(2) NOT NULL COMMENT '月份：1-1月，1-2月... 12-12月',
+      month varchar(2) NOT NULL COMMENT '月份：1-1月，1-2月... 12-12月',  
+      vin varchar(17) comment '车架号',
       soc_range tinyint(1) default 0 comment 'SOC区间范围：0-[0~20],1-[20~40],2-[40~60],3-[60~80]',
       charge_cnt int(4) default 0 comment '充电次数',
       primary key (vin)
@@ -1081,9 +1081,9 @@ create table charge_interval (
 + 车辆SOC区间充电量/行驶里程/充电速率分布
     ```sql
     create table if not exists soc_eq_mile_rate(
-      vin varchar(17) comment '车架号',
       year varchar(2) NOT NULL COMMENT '年份',
-      month varchar(2) NOT NULL COMMENT '月份：1-1月，1-2月，... 12-12月',
+      month varchar(2) NOT NULL COMMENT '月份：1-1月，1-2月，... 12-12月',  
+      vin varchar(17) comment '车架号',
       soc_range tinyint(1) default 0 comment 'SOC区间范围：0-[0~10],1-[10~20],2-[20~30]...9-[90~100]',
       eq_rate_mile tinyint(1) default 0 comment '0-里程、1-充电量、2-充电速率',
       bl_max int(4) comment '箱线最大值',
@@ -1356,9 +1356,9 @@ create table if not exists alm_ana_statis(
 + 平均无故障间隔里程
 ```sql
 create table if not exists avg_noalm_inter (
+    day datetime NOT NULL COMMENT '出行日期,yyyy-MM-dd 格式',
     vin varchar(17) primary key comment '车架号',
     ave_mile double(16,2) default 0.00 comment '平均里程',
-    day datetime NOT NULL COMMENT '出行日期,yyyy-MM-dd 格式',
    ) engine=InnoDB default charset=utf8 comment='平均无故障间隔里程单车'
 ```
 
