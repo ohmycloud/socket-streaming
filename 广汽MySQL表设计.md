@@ -26,9 +26,71 @@
 
 # MySQL 表
 
-|表名                                  |数据源    | 说明         | 
+|表名                                  | 说明   | 数据源       | 
 |:------------------------------------|:--------|:----------------|
-
+|	vehicle_region_rank	|	不同车型不同区域车辆数量分布表	|	|
+|	vehicle_monthly_grow	|	不同车型月增长趋势表	|	|
+|	vehicle_evaluation	|	单车整车评估指数表	|	|
+|	vehicle_type_evaluation	|	车型评估指数表	|	|
+|	vehicle_evaluation_details	|	单车整车评估细项表	|	|
+|	vehicle_type_evaluation_details	|	车型评估细项表	|	|
+|	driving_period_summary	|	出行时段分布表（驾驶行为-整体区域）	|	|
+|	driving_intensity_summary	|	出行强度表（驾驶行为-整体区域）	|	|
+|	driving_harsh_summary	|	出行平稳度表（驾驶行为-整体区域）	|	|
+|	brake_acc_summary	|	加速与制动次数与深度分布表（驾驶行为-整体区域）	|	|
+|	electricity_mileage_duration_summary	|	各速度区间电耗/里程/时长表（驾驶行为-整体区域）	|	|
+|	pedal_speed_summary	|	制动/加速踏板速度区段频次和深度分布表（驾驶行为-整体区域）	|	|
+|	pedal_depth_summary	|	制动/加速踏板深度区段频次分布（驾驶行为-整体区域）	|	|
+|	acc_distribution_summary	|	各速度区间速度分布表（驾驶行为-整体区域）	|	|
+|	driving_period	|	出行时段分布表（单车）	|	|
+|	driving_intensity	|	出行强度表（单车）	|	|
+|	driving_sharp	|	出行平稳度-三急统计表（单车）	|	|
+|	brake_acc	|	加速与制动次数与深度分布表（单车）	|	|
+|	electricity_mileage_duration	|	各速度区间电耗、里程和时长表（单车）	|	|
+|	pedal_cnt_dept	|	制动/加速踏板速度区段频次和深度分布表（单车）	|	|
+|	pedal_depth	|	制动/加速踏板深度区段频次分布表（单车）	|	|
+|	acc_distribution	|	各速度区间速度分布表（单车）	|	|
+|	charge_period_summary	|	充电时段频次分布表（整体区域）	|	|
+|	soc_range_summary	|	充电起始/结束SOC范围分布表（整体区域）	|	|
+|	charge_intensity_summary	|	充电强度表（整体区域）	|	|
+|	charge_current_smoothness_summary	|	充电平稳度表（整体区域）	|	|
+|	soc_range_charge_quality_summary	|	各SOC区间充电电量分布表（整体区域）	|	|
+|	charge_interval_summary	|	充电间隔行为表（整体区域）	|	|
+|	charge_period	|	充电时段频次分布表	|	|
+|	soc_start_end	|	充电起始/结束SOC范围分布表	|	|
+|	charge_intensity	|	充电强度表（单车）	|	|
+|	charge_stablity	|	充电电流平稳度表	|	|
+|	charge_interval	|	充电间隔行为表（单车）	|	|
+|	if not exists bat_temp_dis_summary	|	行程最高/低/起始温度分布整体区域	|	|
+|	bat_temp_perd_dis_summary	|	行程电池温差(7、15)/大于45°时长占比分布	|	|
+|	temp_vol_dis_dis_summary	|	行程电池温差/压差数值分布整体区域	|	|
+|	temp_vol_perd_summary	|	行程各温度区间/电压区间时长分布整体区域	|	|
+|	bat_watrio_temp_dif_summary	|	行程电池冷却水入口和出口温差数值分布整体区域	|	|
+|	bat_watri_temp_range_summary	|	电池冷却水入口温度区间时长分布整体区域	|	|
+|	charge_ssocr_dis_summary	|	车辆充电起始SOC区间分布	|	|
+|	soc_eq_mile_rate_summary	|	车辆SOC区间充电量/行驶里程/充电速率分布整体区域	|	|
+|	bat_temp_dis	|	行程最高/低/起始温度分布单车	|	|
+|	bat_temp_perd_dis	|	行程电池温差(7、15)/大于45°时长占比分布单车	|	|
+|	temp_vol_dis_dis	|	行程电池温差/压差数值分布单车	|	|
+|	temp_vol_perd	|	行程各温度/电压区间时长分布单车	|	|
+|	bat_watrio_temp_dif	|	行程电池冷却水入口和出口温差数值分布单车	|	|
+|	bat_watri_temp_range	|	电池冷却水入口温度区间时长分布单车	|	|
+|	charge_ssocr_dis	|	车辆SOC区间行驶里程分布单车	|	|
+|	soc_eq_mile_rate	|	车辆SOC区间充电量分布整体区域	|	|
+|	parts_summary	|	零部件温度,电机系统水泵占空比,母线电压分布表（整体区域）	|	|
+|	dcdc_summary	|	DC-DC在不同buck模式温度/母线电压分布（整体区域）	|	|
+|	ptc_ecp_summary	|	PTC/ECP/电池加热器状态分布表（整体区域）	|	|
+|	3to2_valve_summary	|	三通阀/快冷/慢冷状态分布表（整体区域）	|	|
+|	parts	|	零部件温度,电机系统水泵占空比,母线电压分布表（单车）	|	|
+|	speed_torque_relation	|	驱动电机/发电机/发动机转速与扭矩关系分布表（单车）	|	|
+|	speed_torque_temp_relation	|	不同温度/电压/区间转速扭矩关系分布分布表（单车）	|	|
+|	ptc_ecp	|	PTC/ECP/电池加热器状态分布表（单车）	|	|
+|	3to2_valve	|	三通阀/快冷/慢冷状态分布表（单车）	|	|
+|	if not exists alm_ana_statis_summary	|	故障分析统计表整体区域	|	|
+|	if not exists avg_noalm_inter_summary	|	平均无故障间隔里程整体区域	|	|
+|	if not exists alm_ana_statis	|	故障分析统计表单车	|	|
+|	if not exists avg_noalm_inter	|	平均无故障间隔里程单车	|	|
+|	real_time_summary	|	每日所有车辆所有故障（或其它指标）汇总表	|	|
 
 
 # 首页
@@ -725,7 +787,7 @@ create table charge_interval (
 + 行程电池起始/最高/低温度分布
 
 ```sql
-create table if not exists bat_temp_dis_summary(
+create table bat_temp_dis_summary(
   year varchar(2) NOT NULL COMMENT              '年份',
   month varchar(2) NOT NULL COMMENT             '月份：1-1月，1-2月... 12-12月',
   region varchar(20) NOT NULL COMMENT           '区域',
@@ -742,11 +804,11 @@ create table if not exists bat_temp_dis_summary(
   key idx_region (region),
   key idx_car_type (car_type),
   key idx_car_usage (car_usage)
-) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程最高/低/起始温度分布整体区域';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程最高/低/起始温度分布整体区域';
 ```
 + 行程电池温差(大于7、大于15)/最高温度大于45°时长占比分布
     ```sql
-    create table if not exists bat_temp_perd_dis_summary(
+    create table bat_temp_perd_dis_summary(
       year varchar(2) NOT NULL COMMENT           '年份',
       month varchar(2) NOT NULL COMMENT          '月份：1-1月，1-2月... 12-12月',
       region varchar(20) NOT NULL COMMENT        '区域',
@@ -762,12 +824,12 @@ create table if not exists bat_temp_dis_summary(
       key idx_region (region),
       key idx_car_type (car_type),
       key idx_car_usage (car_usage)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程电池温差(7、15)/大于45°时长占比分布';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程电池温差(7、15)/大于45°时长占比分布';
     ```
 
 + 行程电池温差/压差数值分布
     ```sql
-    create table if not exists temp_vol_dis_dis_summary(
+    create table temp_vol_dis_dis_summary(
       year varchar(2) NOT NULL COMMENT              '年份',
       month varchar(2) NOT NULL COMMENT             '月份：1-1月，1-2月... 12-12月',
       region varchar(20) NOT NULL COMMENT           '区域',
@@ -783,12 +845,12 @@ create table if not exists bat_temp_dis_summary(
       key idx_region (region),
       key idx_car_type (car_type),
       key idx_car_usage (car_usage)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程电池温差/压差数值分布整体区域';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程电池温差/压差数值分布整体区域';
     ```
     
 + 行程各温度/电压区间时长分布
     ```sql
-    create table if not exists temp_vol_perd_summary(
+    create table temp_vol_perd_summary(
       year varchar(2) NOT NULL COMMENT           '年份',
       month varchar(2) NOT NULL COMMENT          '月份：1-1月，1-2月，... 12-12月',
       region varchar(20) NOT NULL COMMENT        '区域',
@@ -805,11 +867,11 @@ create table if not exists bat_temp_dis_summary(
       key idx_region (region),
       key idx_car_type (car_type),
       key idx_car_usage (car_usage)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程各温度区间/电压区间时长分布整体区域';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程各温度区间/电压区间时长分布整体区域';
     ```
 + 行程电池冷却水入口和出口温差数值分布
     ```sql
-    create table if not exists bat_watrio_temp_dif_summary(
+    create table bat_watrio_temp_dif_summary(
       year varchar(2) NOT NULL COMMENT       '年份',
       month varchar(2) NOT NULL COMMENT      '月份：1-1月，1-2月... 12-12月',
       region varchar(20) NOT NULL COMMENT    '区域',
@@ -824,11 +886,11 @@ create table if not exists bat_temp_dis_summary(
       key idx_region (region),
       key idx_car_type (car_type),
       key idx_car_usage (car_usage)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程电池冷却水入口和出口温差数值分布整体区域';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程电池冷却水入口和出口温差数值分布整体区域';
    ```
 + 电池冷却水入口温度区间时长分布
     ```sql
-    create table if not exists bat_watri_temp_range_summary(
+    create table bat_watri_temp_range_summary(
       year varchar(2) NOT NULL COMMENT        '年份',
       month varchar(2) NOT NULL COMMENT       '月份：1-1月，1-2月... 12-12月',
       region varchar(20) NOT NULL COMMENT     '区域',
@@ -844,11 +906,11 @@ create table if not exists bat_temp_dis_summary(
       key idx_region (region),
       key idx_car_type (car_type),
       key idx_car_usage (car_usage)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='电池冷却水入口温度区间时长分布整体区域';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='电池冷却水入口温度区间时长分布整体区域';
    ```
 + 车辆充电起始SOC区间分布
     ```sql
-    create table if not exists charge_ssocr_dis_summary(
+    create table charge_ssocr_dis_summary(
       year varchar(2) NOT NULL COMMENT       '年份',
       month varchar(2) NOT NULL COMMENT      '月份：1-1月，1-2月... 12-12月',
       region varchar(20) NOT NULL COMMENT    '区域',
@@ -859,11 +921,11 @@ create table if not exists bat_temp_dis_summary(
       key idx_region (region),
       key idx_car_type (car_type),
       key idx_car_usage (car_usage)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='车辆充电起始SOC区间分布';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='车辆充电起始SOC区间分布';
     ```
 + 车辆SOC区间充电量/行驶里程/充电速率分布
     ```sql
-    create table if not exists soc_eq_mile_rate_summary(
+    create table soc_eq_mile_rate_summary(
       year varchar(2) NOT NULL COMMENT          '年份',
       month varchar(2) NOT NULL COMMENT         '月份：1-1月，1-2月... 12-12月',
       region varchar(20) NOT NULL COMMENT       '区域',
@@ -879,12 +941,12 @@ create table if not exists bat_temp_dis_summary(
       key idx_region (region),
       key idx_car_type (car_type),
       key idx_car_usage (car_usage)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='车辆SOC区间充电量/行驶里程/充电速率分布整体区域';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='车辆SOC区间充电量/行驶里程/充电速率分布整体区域';
     ```
 ## 电池分析-单车
 + 行程电池起始/最高/低温度分布
     ```sql
-    create table if not exists bat_temp_dis(
+    create table bat_temp_dis(
       year varchar(2) NOT NULL COMMENT              '年份',
       month varchar(2) NOT NULL COMMENT             '月份：1-1月，1-2月，... 12-12月',
       vin varchar(17) COMMENT                       '车架号',
@@ -897,11 +959,11 @@ create table if not exists bat_temp_dis_summary(
       bl_up_qutr int(3) COMMENT                     '箱线上1/4',
       bl_down_qutr int(3) COMMENT                   '箱线下1/4',
       primary key (vin)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程最高/低/起始温度分布单车';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程最高/低/起始温度分布单车';
     ```
 + 行程电池温差(7、15)/大于45°时长占比分布单
     ```sql
-    create table if not exists bat_temp_perd_dis(
+    create table bat_temp_perd_dis(
       year varchar(2) NOT NULL COMMENT           '年份',
       month varchar(2) NOT NULL COMMENT          '月份：1-1月，1-2月... 12-12月',
       vin varchar(17) COMMENT                    '车架号',
@@ -913,11 +975,11 @@ create table if not exists bat_temp_dis_summary(
       bl_up_qutr int(3) COMMENT                  '箱线上1/4',
       bl_down_qutr int(3) COMMENT                '箱线下1/4',
       primary key (vin)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程电池温差(7、15)/大于45°时长占比分布单车';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程电池温差(7、15)/大于45°时长占比分布单车';
     ```
 + 行程电池温差/压差数值分布
     ```sql
-    create table if not exists temp_vol_dis_dis(
+    create table temp_vol_dis_dis(
       year varchar(2) NOT NULL COMMENT              '年份',
       month varchar(2) NOT NULL COMMENT             '月份：1-1月，1-2月... 12-12月',  
       vin varchar(17) COMMENT                       '车架号',
@@ -929,11 +991,11 @@ create table if not exists bat_temp_dis_summary(
       bl_up_qutr int(3) COMMENT                     '箱线上1/4',
       bl_down_qutr int(3) COMMENT                   '箱线下1/4',
       primary key (vin)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程电池温差/压差数值分布单车';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程电池温差/压差数值分布单车';
     ```
 + 行程各温度/电压区间时长分布
     ```sql
-    create table if not exists temp_vol_perd(
+    create table temp_vol_perd(
       year varchar(2) NOT NULL COMMENT           '年份',
       month varchar(2) NOT NULL COMMENT          '月份：1-1月，1-2月，... 12-12月',
       vin varchar(17) COMMENT                    '车架号',
@@ -946,11 +1008,11 @@ create table if not exists bat_temp_dis_summary(
       bl_up_qutr int(4) COMMENT                  '箱线上1/4',
       bl_down_qutr int(4) COMMENT                '箱线下1/4',
       primary key (vin)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程各温度/电压区间时长分布单车';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程各温度/电压区间时长分布单车';
     ```
 + 行程电池冷却水入口和出口温差数值分布
     ```sql
-    create table if not exists bat_watrio_temp_dif(
+    create table bat_watrio_temp_dif(
       year varchar(2) NOT NULL COMMENT   '年份',
       month varchar(2) NOT NULL COMMENT  '月份：1-1月，1-2月... 12-12月',  
       vin varchar(17) COMMENT            '车架号',
@@ -961,11 +1023,11 @@ create table if not exists bat_temp_dis_summary(
       bl_up_qutr int(4) COMMENT          '箱线上1/4',
       bl_down_qutr int(4) COMMENT        '箱线下1/4',
       primary key (vin)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程电池冷却水入口和出口温差数值分布单车';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程电池冷却水入口和出口温差数值分布单车';
    ```
 + 电池冷却水入口温度区间时长分布
     ```sql
-    create table if not exists bat_watri_temp_range(
+    create table bat_watri_temp_range(
       year varchar(2) NOT NULL COMMENT        '年份',
       month varchar(2) NOT NULL COMMENT       '月份：1-1月，1-2月... 12-12月',  
       vin varchar(17) COMMENT                 '车架号',
@@ -977,22 +1039,22 @@ create table if not exists bat_temp_dis_summary(
       bl_up_qutr int(4) COMMENT               '箱线上1/4',
       bl_down_qutr int(4) COMMENT             '箱线下1/4',
       primary key (vin)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='电池冷却水入口温度区间时长分布单车';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='电池冷却水入口温度区间时长分布单车';
    ```
 + 车辆充电起始SOC区间分布
     ```sql
-    create table if not exists charge_ssocr_dis(
+    create table charge_ssocr_dis(
       year varchar(2) NOT NULL COMMENT       '年份',
       month varchar(2) NOT NULL COMMENT      '月份：1-1月，1-2月... 12-12月',  
       vin varchar(17) COMMENT                '车架号',
       soc_range tinyint(1) default 0 COMMENT 'SOC区间范围：0-[0~20],1-[20~40],2-[40~60],3-[60~80]',
       charge_cnt int(4) default 0 COMMENT    '充电次数',
       primary key (vin)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='车辆SOC区间行驶里程分布单车';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='车辆SOC区间行驶里程分布单车';
     ```
 + 车辆SOC区间充电量/行驶里程/充电速率分布
     ```sql
-    create table if not exists soc_eq_mile_rate(
+    create table soc_eq_mile_rate(
       year varchar(2) NOT NULL COMMENT          '年份',
       month varchar(2) NOT NULL COMMENT         '月份：1-1月，1-2月，... 12-12月',  
       vin varchar(17) COMMENT                   '车架号',
@@ -1004,7 +1066,7 @@ create table if not exists bat_temp_dis_summary(
       bl_up_qutr int(4) COMMENT                 '箱线上1/4',
       bl_down_qutr int(4) COMMENT               '箱线下1/4',
       primary key (vin)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='车辆SOC区间充电量分布整体区域';
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='车辆SOC区间充电量分布整体区域';
     ```
 
 ## 其它零部件分析-整体区域
@@ -1220,7 +1282,7 @@ create table 3to2_valve (
 + 故障数Top15
 
 ```sql
-create table if not exists alm_ana_statis_summary(
+create table alm_ana_statis_summary(
     year varchar(2) NOT NULL COMMENT         '年份',
     month varchar(2) NOT NULL COMMENT        '月份：1-1月，1-2月... 12-12月',
     region_name varchar(20) NOT NULL COMMENT '区域名称',
@@ -1233,17 +1295,17 @@ create table if not exists alm_ana_statis_summary(
     key idx_region (region_name),
     key idx_car_type (car_type),
     key idx_car_usage (car_usage)
-) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='故障分析统计表整体区域';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='故障分析统计表整体区域';
 ```
 + 平均无故障间隔里程
 
 ```sql
-create table if not exists avg_noalm_inter_summary(
+create table avg_noalm_inter_summary(
     region_name varchar(20) NOT NULL COMMENT   '区域名称',
     car_type varchar(10) NOT NULL COMMENT      '车型',
     car_usage varchar(10) NOT NULL COMMENT     '用途',
     ave_mile double(16,2) default 0.00 COMMENT '平均里程',
-) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='平均无故障间隔里程整体区域';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='平均无故障间隔里程整体区域';
 ```
 
 ## 故障统计-单车
@@ -1255,7 +1317,7 @@ create table if not exists avg_noalm_inter_summary(
 + 故障类型时序图
 
 ```sql
-create table if not exists alm_ana_statis(
+create table alm_ana_statis(
     year varchar(2) NOT NULL COMMENT      '年份',
     month varchar(2) NOT NULL COMMENT     '月份：1-1月，1-2月，... 12-12月',
     vin varchar(17) NOT NULL COMMENT      '车架号',
@@ -1266,17 +1328,17 @@ create table if not exists alm_ana_statis(
     primary key (vin),
     key idx_alm_lvl (alm_lvl),
     key idx_alm_type (alm_type)
-   ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='故障分析统计表单车'
+   ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='故障分析统计表单车';
 ```
 
 + 平均无故障间隔里程
 
 ```sql
-create table if not exists avg_noalm_inter (
+create table avg_noalm_inter (
     day datetime NOT NULL COMMENT              '出行日期,yyyy-MM-dd 格式',
     vin varchar(17) primary key COMMENT        '车架号',
     ave_mile double(16,2) default 0.00 COMMENT '平均里程',
-   ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='平均无故障间隔里程单车'
+   ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='平均无故障间隔里程单车';
 ```
 
 - 全国每日所有车辆所有故障统计
