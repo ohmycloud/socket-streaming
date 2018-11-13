@@ -28,96 +28,6 @@
 
 |表名                                  |数据源    | 说明         | 
 |:------------------------------------|:--------|:----------------|
-| vehicle_region_rank  |  |  |  
-| vehicle_monthly_grow  |  |  |  
-| vehicle_evaluation  |  |  |  
-| vehicle_type_evaluation  |  |  |  
-| vehicle_evaluation_details  |  |  |  
-| vehicle_type_evaluation_details  |  |  |  
-| driving_period_summary  |  |  |  
-| driving_intensity_summary  |  |  |  
-| driving_harsh_summary  |  |  |  
-| brake_acc_summary  |  |  |  
-| electricity_mileage_duration_summary  |  |  |  
-| pedal_speed_summary  |  |  |  
-| pedal_depth_summary  |  |  |  
-| acc_distribution_summary  |  |  |  
-| driving_period  |  |  |  
-| driving_intensity  |  |  |  
-| driving_sharp  |  |  |  
-| brake_acc  |  |  |  
-| electricity_mileage_duration  |  |  |  
-| pedal_cnt_dept  |  |  |  
-| pedal_depth  |  |  |  
-| acc_distribution  |  |  |  
-| charge_period_summary  |  |  |  
-| soc_range_summary  |  |  |  
-| charge_intensity_summary  |  |  |  
-| charge_current_smoothness_summary  |  |  |  
-| soc_range_charge_quality_summary  |  |  |  
-| charge_interval_summary  |  |  |  
-| charge_period  |  |  |  
-| soc_start_end  |  |  |  
-| charge_intensity  |  |  |  
-| charge_stablity  |  |  |  
-| charge_interval  |  |  |  
-| tbst_dis_all  |  |  |  
-| thlt_dis_all  |  |  |  
-| tbtdp_dis_all  |  |  |  
-| tbht_gt45_per_all  |  |  |  
-| tbtdv_dis_all  |  |  |  
-| tbvdv_dis_all  |  |  |  
-| ttr_dis_all  |  |  |  
-| tvr_dis_all  |  |  |  
-| tbcio_tdv_dis_all  |  |  |  
-| tbci_tr_dis_all  |  |  |  
-| charge_ssocr_dis_summary  |  |  |  
-| soc_rm_dis_all  |  |  |  
-| soc_rc_dis_all  |  |  |  
-| soc_cv_dis_all  |  |  |  
-| tbst_dis  |  |  |  
-| thlt_dis  |  |  |  
-| tbtdp_dis  |  |  |  
-| tbht_gt45_per  |  |  |  
-| tbtdv_dis  |  |  |  
-| tbvdv_dis  |  |  |  
-| ttr_dis  |  |  |  
-| tvr_dis  |  |  |  
-| tbcio_tdv_dis  |  |  |  
-| tbci_tr_dis  |  |  |  
-| charge_ssocr_dis  |  |  |  
-| soc_rm_dis  |  |  |  
-| soc_rc_dis  |  |  |  
-| soc_vc_dis  |  |  |  
-| parts_summary  |  |  |  
-| dcdc_summary  |  |  |  
-| ptc_ecp_summary  |  |  |  
-| 3to2_valve_summary  |  |  |  
-| parts  |  |  |  
-| speed_torque_relation  |  |  |  
-| speed_torque_temp_relation  |  |  |  
-| ptc_ecp  |  |  |  
-| 3to2_valve  |  |  |  
-| alm_ana_statis_all  |  |  |  
-| avg_noalm_inter_all  |  |  |  
-| alm_ana_statis  |  |  |  
-| avg_noalm_inter  |  |  |  
-|bat_temp_dis_summary|    |行程最高/低/起始温度分布整体区域| 
-|bat_temp_perd_dis_summary|    |行程电池温差(7、15)/大于45°时长占比分布|
-|temp_vol_dis_dis_summary|    |行程电池温差/压差数值分布整体区域|
-|temp_vol_perd_summary|    |行程各温度区间/电压区间时长分布整体区域|
-|bat_watrio_temp_dif_summary|    |行程电池冷却水入口和出口温差数值分布整体区域|
-|bat_watri_temp_range_summary|    |电池冷却水入口温度区间时长分布整体区域|
-|charge_ssocr_dis_summary|    |车辆SOC区间行驶里程分布整体区域|
-|soc_eq_mile_rate_summary|    |车辆SOC区间充电量/行驶里程/充电速率分布整体区域|
-|bat_temp_dis|    |行程最高/低/起始温度分布单车|
-|bat_temp_perd_dis|    |行程电池温差(7、15)/大于45°时长占比分布单车|
-|temp_vol_dis_dis|    |行程电池温差/压差数值分布单车|
-|temp_vol_perd|    |行程各温度区间/电压区间时长分布单车|
-|bat_watrio_temp_dif|    |行程电池冷却水入口和出口温差数值分布单车|
-|bat_watri_temp_range|    |电池冷却水入口温度区间时长分布单车|
-|charge_ssocr_dis|    |车辆SOC区间行驶里程分布单车|
-|soc_eq_mile_rate|    |车辆SOC区间充电量/行驶里程/充电速率分布单车|
 
 
 
@@ -570,6 +480,7 @@ create table pedal_depth (
 ```
 
 - 出行工况-各速度区间车辆加速度分布
+
 ```sql
 create table acc_distribution (
     day datetime NOT NULL COMMENT                        '出行日期,yyyy-MM-dd 格式',
@@ -812,26 +723,27 @@ create table charge_interval (
 # 零部件分析
 ## 电池分析-整体区域
 + 行程电池起始/最高/低温度分布
-    ```sql
-    create table if not exists bat_temp_dis_summary(
-      year varchar(2) NOT NULL COMMENT              '年份',
-      month varchar(2) NOT NULL COMMENT             '月份：1-1月，1-2月... 12-12月',
-      region varchar(20) NOT NULL COMMENT           '区域',
-      car_type varchar(10) NOT NULL COMMENT         '车型',
-      car_usage varchar(10) NOT NULL COMMENT        '用途',
-      trip_status char(1) NOT NULL COMMENT          '行程类型：0-驾驶 1-充电 2-休眠6小时',
-      trip_st_all_flag tinyint(1) default 0 COMMENT '0-起始 1-所有',
-      temp_hl_flag tinyint(1) default 0 COMMENT     '最高/低温度标识:0-最高 1-最低',
-      bl_max int(3) COMMENT                         '箱线最大值',
-      bl_min int(3) COMMENT                         '箱线最小值',
-      bl_mid int(3) COMMENT                         '箱线中位数',
-      bl_up_qutr int(3) COMMENT                     '箱线上1/4',
-      bl_down_qutr int(3) COMMENT                   '箱线下1/4',
-      key idx_region (region),
-      key idx_car_type (car_type),
-      key idx_car_usage (car_usage)
-    ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程最高/低/起始温度分布整体区域';
-    ```
+
+```sql
+create table if not exists bat_temp_dis_summary(
+  year varchar(2) NOT NULL COMMENT              '年份',
+  month varchar(2) NOT NULL COMMENT             '月份：1-1月，1-2月... 12-12月',
+  region varchar(20) NOT NULL COMMENT           '区域',
+  car_type varchar(10) NOT NULL COMMENT         '车型',
+  car_usage varchar(10) NOT NULL COMMENT        '用途',
+  trip_status char(1) NOT NULL COMMENT          '行程类型：0-驾驶 1-充电 2-休眠6小时',
+  trip_st_all_flag tinyint(1) default 0 COMMENT '0-起始 1-所有',
+  temp_hl_flag tinyint(1) default 0 COMMENT     '最高/低温度标识:0-最高 1-最低',
+  bl_max int(3) COMMENT                         '箱线最大值',
+  bl_min int(3) COMMENT                         '箱线最小值',
+  bl_mid int(3) COMMENT                         '箱线中位数',
+  bl_up_qutr int(3) COMMENT                     '箱线上1/4',
+  bl_down_qutr int(3) COMMENT                   '箱线下1/4',
+  key idx_region (region),
+  key idx_car_type (car_type),
+  key idx_car_usage (car_usage)
+) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='行程最高/低/起始温度分布整体区域';
+```
 + 行程电池温差(大于7、大于15)/最高温度大于45°时长占比分布
     ```sql
     create table if not exists bat_temp_perd_dis_summary(
@@ -1174,7 +1086,7 @@ create table ptc_ecp_summary (
 ```
 
 - 三通阀/快冷/慢冷状态分布
-
+
 ```sql
 create table 3to2_valve_summary (
   year varchar(4) NOT NULL COMMENT            '年份',
@@ -1306,8 +1218,9 @@ create table 3to2_valve (
 + 类型占比
 + 车辆占比
 + 故障数Top15
+
 ```sql
-create table if not exists alm_ana_statis_all(
+create table if not exists alm_ana_statis_summary(
     year varchar(2) NOT NULL COMMENT         '年份',
     month varchar(2) NOT NULL COMMENT        '月份：1-1月，1-2月... 12-12月',
     region_name varchar(20) NOT NULL COMMENT '区域名称',
@@ -1320,11 +1233,11 @@ create table if not exists alm_ana_statis_all(
     key idx_region (region_name),
     key idx_car_type (car_type),
     key idx_car_usage (car_usage)
-   ) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='故障分析统计表整体区域';
+) engine=InnoDB DEFAULT CHARSET=utf8 COMMENT='故障分析统计表整体区域';
 ```
 + 平均无故障间隔里程
 ```sql
-create table if not exists avg_noalm_inter_all(
+create table if not exists avg_noalm_inter_summary(
     region_name varchar(20) NOT NULL COMMENT   '区域名称',
     car_type varchar(10) NOT NULL COMMENT      '车型',
     car_usage varchar(10) NOT NULL COMMENT     '用途',
