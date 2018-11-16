@@ -1,7 +1,6 @@
 package com.gac.xs6.bigdata
 
 import javax.inject.{Inject, Singleton}
-
 import com.datastax.spark.connector.util.Logging
 import com.google.inject.Guice
 import com.typesafe.config.ConfigFactory
@@ -9,18 +8,15 @@ import com.gac.xs6.bigdata.BigdataApplication.Params
 import com.gac.xs6.bigdata.conf.{KafkaConfiguration, SparkConfiguration}
 import com.gac.xs6.bigdata.core._
 import com.gac.xs6.bigdata.dao.{HbaseSourceDao, HbaseUtil, MysqlSourceDao, MysqlUtil}
-import com.gac.xs6.bigdata.model.{ChargeState, SourceData, TripState, WaringData}
+import com.gac.xs6.bigdata.model.{ChargeState, SourceData, TripState}
 import com.gac.xs6.bigdata.module.MainModule
 import com.gac.xs6.bigdata.pipeline.DStreamSource
-import com.gac.xs6.bigdata.util.StringUtil
 import org.apache.hadoop.hbase.TableName
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.streaming.dstream.DStream
 import org.apache.spark.streaming.{Duration, Seconds, StreamingContext}
 import scopt.OptionParser
 import org.apache.spark.SparkContext
-
-import scala.collection.mutable.ListBuffer
 
 /**
   * Auther: wkf
@@ -33,7 +29,7 @@ object BigdataApplication extends App with Logging {
   val parser = new OptionParser[Params]("KafkaFeeder") {
     head("KafkaFeeder: obddata streaming from file")
 
-    opt[String]('c', "com/wm/telematics/conf")
+    opt[String]('c', "com/xs/telematics/conf")
       .text("config.resource for telematics")
       .action((x, c) => c.copy(conf = x))
 
