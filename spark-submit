@@ -1,12 +1,12 @@
 #!/bin/sh
 
-CONF_DIR=/root/telematics/resources
+CONF_DIR=/root/bigdata/resources
 APP_CONF=application.env.conf
 EXECUTOR_JMX_PORT=23333
 DRIVER_JMX_PORT=2334
 
 spark-submit \
-  --class com.xs.telematics.TelematicsApplication \
+  --class com.gac.xs6.bigdata.BigdataApplication \
   --master yarn \
   --deploy-mode cluster \
   --driver-memory 2g \
@@ -21,4 +21,4 @@ spark-submit \
   --conf spark.yarn.maxAppAttempts=2 \
   --conf spark.yarn.submit.waitAppCompletion=false \
   --files $CONF_DIR/$APP_CONF,$CONF_DIR/log4j.properties,$CONF_DIR/metrics.properties \
-   /root/telematics/telematics-spark-0.0.1-SNAPSHOT-shaded.jar
+   /root/bigdata/bigdata-online-1.0-SNAPSHOT-shaded.jar
