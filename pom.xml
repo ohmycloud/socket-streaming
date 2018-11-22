@@ -7,7 +7,7 @@
     <name>gac-xs6</name>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>bigdata-online</module>
+        <module>socket-streaming</module>
     </modules>
 
     <properties>
@@ -38,8 +38,6 @@
         <metrics.version>3.1.2</metrics.version>
 
         <!-- Networking -->
-
-        <netty.version>3.10.3.Final</netty.version>
         <netty-transport.version>4.0.29.Final</netty-transport.version>
 
         <!-- Third Party -->
@@ -81,21 +79,12 @@
                 <version>${spark.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka-0-8 -->
-            <dependency>
-                <groupId>org.apache.spark</groupId>
-                <artifactId>spark-streaming-kafka-0-8_2.11</artifactId>
-                <version>${spark.version}</version>
-            </dependency>
-
             <!-- https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector -->
             <dependency>
                 <groupId>com.datastax.spark</groupId>
                 <artifactId>spark-cassandra-connector_${scala.binary.version}</artifactId>
                 <version>${spark.version}</version>
             </dependency>
-
-
 
             <dependency>
                 <groupId>joda-time</groupId>
@@ -112,11 +101,7 @@
                 <artifactId>scopt_${scala.binary.version}</artifactId>
                 <version>${scopt.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.typesafe.play</groupId>
-                <artifactId>play-ws_${scala.binary.version}</artifactId>
-                <version>${typesafe-ws.version}</version>
-            </dependency>
+
             <dependency>
                 <groupId>org.json4s</groupId>
                 <artifactId>json4s-native_${scala.binary.version}</artifactId>
@@ -146,10 +131,15 @@
                 <artifactId>gson</artifactId>
                 <version>${gson.version}</version>
             </dependency>
+            <!--<dependency>-->
+                <!--<groupId>io.netty</groupId>-->
+                <!--<artifactId>netty-transport-native-epoll</artifactId>-->
+                <!--<version>${netty-transport.version}</version>-->
+            <!--</dependency>-->
             <dependency>
                 <groupId>io.netty</groupId>
-                <artifactId>netty-transport-native-epoll</artifactId>
-                <version>${netty-transport.version}</version>
+                <artifactId>netty-all</artifactId>
+                <version>4.1.17.Final</version>
             </dependency>
             <dependency>
                 <groupId>com.jolbox</groupId>
