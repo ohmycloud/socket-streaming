@@ -1,33 +1,34 @@
-my $vin = 'LSJA0000000000091';
-my $last_meter = 0;  # 当前里程数
+sub MAIN(Str :$host = '0.0.0.0', Int :$port = 3333) {
 
-react {
-    whenever IO::Socket::Async.listen('0.0.0.0', 3333) -> $conn {
-        my $fh = open 'events.txt', :w;
-        react {
-            my Bool:D $ignore = True;
-
-            whenever Supply.interval(5).rotor(1, 1 => 1) {
-                $ignore = !$ignore;
-            }
+    my $vin = 'LSJA0000000000091';
+    my $last_meter = 0;
     
-            whenever Supply.interval(1) {
-                next if $ignore;
-                $fh.print: sprintf("\{'vin':'%s','createTime':%s,'mileage':%s}\n", $vin, DateTime.now.posix, $last_meter);
-                $conn.print: sprintf("\{'vin':'%s','createTime':%s,'mileage':%s}\n", $vin, DateTime.now.posix, $last_meter++);
-            }
+    react {
+        whenever IO::Socket::Async.listen($host, $port) -> $conn {
+            react {
+                my Bool:D $ignore = True;
+    
+                whenever Supply.interval(5).rotor(1, 1 => 1) {
+                    $ignore = !$ignore;
+                }
         
-            whenever signal(SIGINT) {
-                say "Done.";
-                $fh.close;
-                done;
+                whenever Supply.interval(1) {
+                    next if $ignore;
+                    print sprintf("\{'vin':'%s','createTime':%s,'mileage':%s}\n", $vin, DateTime.now.posix, $last_meter);
+                    $conn.print: sprintf("\{'vin':'%s','createTime':%s,'mileage':%s}\n", $vin, DateTime.now.posix, $last_meter++);
+                }
+            
+                whenever signal(SIGINT) {
+                    say "Done.";
+                    done;
+                }
+            } 
+        }
+        CATCH {
+            default {
+                say .^name, ': ', .Str;
+                say "handled in $?LINE";
             }
-        } 
-    }
-    CATCH {
-        default {
-            say .^name, ': ', .Str;
-            say "handled in $?LINE";
         }
     }
 }

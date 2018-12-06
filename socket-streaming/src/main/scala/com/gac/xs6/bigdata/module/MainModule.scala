@@ -4,7 +4,7 @@ import com.datastax.spark.connector.util.Logging
 import com.gac.xs6.bigdata.BigdataApplication
 import com.gac.xs6.bigdata.core.impl.{AdapterImpl, SubTripImpl}
 import com.google.inject.{AbstractModule, Provides, Singleton}
-import com.gac.xs6.bigdata.conf.SparkConfiguration
+import com.gac.xs6.bigdata.conf.{SocketConfiguration, SparkConfiguration}
 import com.gac.xs6.bigdata.core.{Adapter, SubTrip}
 import org.apache.spark.streaming.StreamingContext
 import org.apache.spark.streaming.dstream.DStream
@@ -39,12 +39,12 @@ object MainModule extends AbstractModule with Logging {
 
   @Provides
   @Singleton
-  def SocketDataSource: DStreamSource[String] = {
+  def SocketDataSource(socketConfiguration: SocketConfiguration): DStreamSource[String] = {
     new DStreamSource[String] {
       def stream(ssc: StreamingContext): DStream[String] = {
         implicit val formats = DefaultFormats + StringToBigDecimal + StringToInt + StringToDouble + StringToInstant + StringToLong
 
-        val stream: DStream[String] = ssc.socketTextStream("localhost", 3333)
+        val stream: DStream[String] = ssc.socketTextStream(socketConfiguration.host, socketConfiguration.port)
         stream
       }
     }

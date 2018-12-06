@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CONF_DIR=/Users/ohmycloud/work/cihon/gac/socket-streaming/socket-streaming/src/main/resources
+CONF_DIR=/Users/ohmycloud/demo/Spark/socket-spark-streaming/socket-streaming/src/main/resources
 APP_CONF=application.conf
 EXECUTOR_JMX_PORT=23333
 DRIVER_JMX_PORT=2334
@@ -21,4 +21,4 @@ spark-submit \
   --conf spark.yarn.maxAppAttempts=2 \
   --conf spark.yarn.submit.waitAppCompletion=false \
   --files $CONF_DIR/$APP_CONF,$CONF_DIR/log4j.properties,$CONF_DIR/metrics.properties \
-  /Users/ohmycloud/work/cihon/gac/socket-streaming/socket-streaming/target/bigdata-online-1.0-SNAPSHOT-shaded.jar
+  /Users/ohmycloud/demo/Spark/socket-spark-streaming/socket-streaming/target/bigdata-online-1.0-SNAPSHOT-shaded.jar
